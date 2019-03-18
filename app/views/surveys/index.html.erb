@@ -13,12 +13,20 @@
 
   <tbody>
     <% @surveys.each do |survey| %>
-      <tr>
-        <td><%= survey.title %></td>
-        <td><%= survey.abstract %></td>
-        <td><%= link_to 'Show', survey %></td>
-        <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
-        <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td class="abstract">
+          <h1><%= survey.title %></h1>
+          <p>
+            <%= survey.abstract %>
+          </p>
+        </td>
+        <td class="actions">
+          <ul>
+        <li><%= link_to 'Show', survey %></li>
+        <li><%= link_to 'Edit', edit_survey_path(survey) %></li>
+        <li><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </td>
       </tr>
     <% end %>
   </tbody>
