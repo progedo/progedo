@@ -6,6 +6,12 @@ Survey.create!(title: 'Recensement de la population 2010 : fichier détail logem
 
     })
 
+Survey.create!(title: 'Enquête de test',
+  abstract:
+    %{Résumé de test
+
+    })
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #

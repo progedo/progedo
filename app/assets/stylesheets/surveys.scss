@@ -31,6 +31,25 @@
     }
   }
 
+  a.commander {
+    display: inline-block;
+    color: #444;
+    border: 1px solid #CCC;
+    background: #DDD;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    cursor:pointer;
+    vertical-align:middle;
+    max-width: 200px;
+    padding: 20px;
+    text-align: center;
+    font-size: 2.4em;
+  }
+  a.commander:active {
+    color:red;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+  }
+
+
   tfoot {
     td {
       padding: 0.5em 0;
