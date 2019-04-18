@@ -1,3 +1,3 @@
 class Fichier < ApplicationRecord
-	belongs_to :surveys
+	has_and_belongs_to_many :surveys
 end
