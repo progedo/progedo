@@ -15,7 +15,7 @@
   
     <tbody>
       <% @requests.each do |request| %>
-        <tr>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
           <td><%= request.title %></td>
           <td><%= request.description %></td>
           <td><%= link_to 'Show', request %></td>

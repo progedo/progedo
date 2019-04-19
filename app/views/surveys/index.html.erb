@@ -2,15 +2,8 @@
 
 <h1>Surveys</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Abstract</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<div class="panel">
+<table class="table">
   <tbody>
     <% @surveys.each do |survey| %>
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
@@ -31,6 +24,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
