@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fichiers</h1>
+
+<div class="panel">
+<table class="table">
+  <tbody>
+    <% @fichiers.each do |fichier| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td class="abstract">
+          <h1><%= fichier.chemin %></h1>
+        </td>
+        <td class="actions">
+          <ul>
+        <li><%= link_to 'Show', fichier %></li>
+        <li><%= link_to 'Edit', edit_fichier_path(fichier) %></li>
+        <li><%= link_to 'Destroy', fichier, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<%= link_to 'Nouveau fichier', new_fichier_path %>
