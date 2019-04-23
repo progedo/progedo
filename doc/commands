@@ -1,1 +1,2 @@
 rails generate scaffold Survey title:string abstract:text
+docker exec -it progedo_db_1_edaa4e08bab3 psql myapp_development -U postgres

@@ -15,6 +15,7 @@ class RequestsController < ApplicationController
   # GET /requests/new
   def new
     @request = Request.new
+    @fichiers = Fichier.all
   end
 
   # GET /requests/1/edit
