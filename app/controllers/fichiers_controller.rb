@@ -28,7 +28,7 @@ class FichiersController < ApplicationController
 
     respond_to do |format|
       if @fichier.save
-        format.html { redirect_to @fichier, notice: 'fichier was successfully created.' }
+        format.html { redirect_to @fichier, notice: 'Fichier was successfully created.' }
         format.json { render :show, status: :created, location: @fichier }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class FichiersController < ApplicationController
   def update
     respond_to do |format|
       if @fichier.update(fichier_params)
-        format.html { redirect_to @fichier, notice: 'fichier was successfully updated.' }
+        format.html { redirect_to @fichier, notice: 'Fichier was successfully updated.' }
         format.json { render :show, status: :ok, location: @fichier }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class FichiersController < ApplicationController
   def destroy
     @fichier.destroy
     respond_to do |format|
-      format.html { redirect_to fichiers_url, notice: 'fichier was successfully destroyed.' }
+      format.html { redirect_to fichiers_url, notice: 'Fichier was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class FichiersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fichier_params
-      params.require(:fichier).permit(:title, :description)
+      params.require(:fichier).permit(:chemin)
     end
 end
