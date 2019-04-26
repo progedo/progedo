@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'requests#user_index'
+  root 'surveys#index'
 
   devise_for :users
   resources :requests
