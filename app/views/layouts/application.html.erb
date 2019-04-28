@@ -12,23 +12,36 @@
 
   <body>
     <header class="navbar" role="navigation">
-      <div class="navbar__container">
-        <a class="navbar__home" href="index.html">
+      <div class="navbar__container ">
+        <a class="navbar__home" href="">
           <img class="navbar__logo" src="/images/progedo.png"
             alt="template.data.gouv.fr" /><span>Progedo est un service réservé aux personnels des établissements d'enseignement supérieur et de recherche pour demander l'accès à des fichiers d'enquêtes en sciences humaines et sociales</span>
         </a>
-  
+
         <nav>
-          <ul class="nav__links">
-            <li class="nav__item"> <%= link_to 'Demandes', '/requests' %> </li>
-            <li class="nav__item"> <%= link_to 'Enquêtes', '/surveys' %> </li>
-            <li class="nav__item"> <%= link_to 'Fichiers', '/fichiers' %> </li>
-          </ul>
+          <% if user_signed_in? %>
+            <ul class="nav__links">
+              <li class="nav__item"> <%= link_to 'Enquêtes', '/surveys' %> </li>
+              <li class="nav__item"> <%= link_to 'Demandes', '/requests' %> </li>
+              <li class="nav__item"> <%= link_to 'Fichiers', '/fichiers' %> </li>
+              <li class="nav__item"> <%= link_to 'Modifier Profil', edit_user_registration_path %> </li>
+              <li class="nav__item"> <%= link_to 'Deconnexion', destroy_user_session_path, method: :delete %> </li>
+            </ul>
+            <strong><%= current_user.email %></strong>.
+          <% else %>
+            <ul class="nav__links">
+              <li class="nav__item"> <%= link_to 'Créer compte', new_user_registration_path %> </li>
+              <li class="nav__item"> <%= link_to 'Connexion', new_user_session_path %> </li>
+            </ul>
+          <% end %>
         </nav>
       </div>
     </header>
 
     <main class='<%= controller.controller_name %>'>
+
+      
+      
       <%= yield %>
     </main>
   </body>
