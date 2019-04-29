@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'surveys#index'
 
+  post 'requests/new' => 'requests#selection'
+
   devise_for :users
   resources :requests
   resources :surveys

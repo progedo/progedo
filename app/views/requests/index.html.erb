@@ -9,6 +9,7 @@
       <tr>
         <th>Title</th>
         <th>Description</th>
+        <th>Fichiers</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -18,6 +19,11 @@
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
           <td><%= request.title %></td>
           <td><%= request.description %></td>
+          <td>
+            <% request.fichiers.each do |fichier| %>
+              <p> <%= fichier.chemin %> </p>
+            <% end %>
+          </td>
           <td><%= link_to 'Show', request %></td>
           <td><%= link_to 'Edit', edit_request_path(request) %></td>
           <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
