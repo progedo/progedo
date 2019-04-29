@@ -16,6 +16,14 @@ class RequestsController < ApplicationController
   def show
   end
 
+  def selection
+    @selected = []
+    @selected << Fichier.find(params[:choix_fichier])
+    @request = Request.new
+    @fichiers = Fichier.all
+    render '/requests/new'
+  end
+
   # GET /requests/new
   def new
     @request = Request.new

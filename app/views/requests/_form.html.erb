@@ -21,16 +21,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :fichiers %>
-    <input list="fichier" type="text" id="choix_fichier">
-    <datalist id="fichier">
-      <% @fichiers.each do |fichier| %>
-        <option value = <%= fichier.chemin %> >
-      <% end %>
-    </datalist>
-  </div>
-
-  <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
