@@ -1,28 +1,30 @@
 <h1>New Request</h1>
 
-<div class="field">
-    <textarea rows = "5" cols = "50" name = "sel1" disabled="disabled">
-            <% if !@selected.nil? %>
-              <% @selected.each do |selecte| %>
-                <%= selecte.chemin %>
-              <% end %>
-            <% end %>
-    </textarea>
-  </div>
+<ul class="field" id="selected_items">
+</ul>
 
 <div class="field">
   <%= form_tag "/requests/new", method: "post" do %>
   	<p> Selectiponner un fichier</p>
-    <input list="fic" type="text" name="choix_fichier">
+    <input list="fic" type="text" name="choix_fichier" id="choix_fichier">
     <datalist id="fic">
       <% @fichiers.each do |fichier| %>
         <option value = "<%= fichier.id %>" > <%= fichier.chemin %> </option>
       <% end %>
     </datalist>
-    <input type="submit" value="Ajouter un fichier" />
+    <input type="submit" value="Ajouter un fichier" id="ajouter_un_fichier"/>
   <% end %>
 </div>
 
 <%= render 'form', request: @request %>
 
 <%= link_to 'Back', requests_path %>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $('#choix_fichier').change(function(event) {
+      var value = this.value;
+      $('#selected_items').append('<li>'+value+'</li>');
+    })
+  })
+</script>
