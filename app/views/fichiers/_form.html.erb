@@ -14,6 +14,13 @@
   <div class="field">
     <%= form.label :chemin %>
     <%= form.text_field :chemin %>
+    <p> Selectiponner un fichier</p>
+    <input list="fic" type="text" name="choix_survey" id="choix_survey">
+    <datalist id="fic">
+      <% @surveys.each do |survey| %>
+        <option value = "<%= survey.id %>" > <%= survey.title %> </option>
+      <% end %>
+    </datalist>
   </div>
 
   <div class="actions">

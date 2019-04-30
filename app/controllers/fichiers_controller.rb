@@ -15,6 +15,7 @@ class FichiersController < ApplicationController
   # GET /fichiers/new
   def new
     @fichier = Fichier.new
+    @surveys = Survey.all
   end
 
   # GET /fichiers/1/edit
@@ -25,6 +26,8 @@ class FichiersController < ApplicationController
   # POST /fichiers.json
   def create
     @fichier = Fichier.new(fichier_params)
+    @fichier.survey_id = params[:choix_survey]
+    @surveys = Survey.all
 
     respond_to do |format|
       if @fichier.save
