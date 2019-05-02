@@ -13,3 +13,8 @@ docker initial setup based on https://docs.docker.com/compose/rails/
 # -- Install devise gem
 $ bundle
 $ rails g devise:install
+
+
+create_join_table :fichiers, :requests do |t|
+      t.index [:fichier_id, :request_id]
+      t.index [:request_id, :fichier_id]
