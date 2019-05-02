@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_144324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "survey_id"
+    t.index ["survey_id"], name: "index_fichiers_on_survey_id"
   end
 
   create_table "fichiers_requests", id: false, force: :cascade do |t|
