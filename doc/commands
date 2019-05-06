@@ -8,6 +8,8 @@ docker-compose up --build
 
 docker-compose run web rails g migration
 
+docker initial setup based on https://docs.docker.com/compose/rails/
+
 # -- Install devise gem
 $ bundle
 $ rails g devise:install
