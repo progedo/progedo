@@ -7,6 +7,9 @@ class Ability
     if user.present? && user.back_office?
       can :manage, Fichier
       can :manage, User
+    else
+      can :read, :all
+    end
   end
 end
 
