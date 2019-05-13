@@ -19,7 +19,7 @@
         </a>
 
         <nav>
-          <% if current_user %>
+          <% if user_signed_in? %>
             <ul class="nav__links">
               <li class="nav__item"> <%= link_to 'Enquêtes', '/surveys' %> </li>
               <li class="nav__item"> <%= link_to 'Demandes', '/requests' %> </li>
