@@ -6,9 +6,12 @@ class Ability
   def initialize(user)
     user ||= User.new
     if user.front_office?
-      can :manage, Request, user_id: user.id
+      #can :manage, Request, user_id: user.id
+      can :read, [Survey, Fichier]
+      can [:update, :destroy, :read], Request, user_id: user.id
+      can :create, Request
     elsif user.back_office?
-      can :manage
+      can :manage, :all
     else
       can :read, :all
     end
