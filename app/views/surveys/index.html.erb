@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Enquêtes</h1>
+<div class="page_title">
+  <h1>Enquêtes</h1>
+</div>
 
 <div class="panel">
 <table class="table">
@@ -16,8 +18,10 @@
         <td class="actions">
           <ul>
         <li><%= link_to 'Show', survey %></li>
-        <li><%= link_to 'Edit', edit_survey_path(survey) %></li>
-        <li><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <% if can? :manage, @survey %>
+          <li><%= link_to 'Edit', edit_survey_path(survey) %></li>
+          <li><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <% end %>
           </ul>
         </td>
       </tr>
@@ -27,5 +31,6 @@
 </div>
 
 <br>
-
-<%= link_to 'New Survey', new_survey_path %>
+<% if can? :manage, @survey %>
+  <%= link_to 'New Survey', new_survey_path %>
+<% end %>

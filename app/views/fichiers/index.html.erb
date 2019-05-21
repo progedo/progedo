@@ -18,8 +18,10 @@
           <td><%= fichier.chemin %></td>
           <td><%= fichier.survey.title %></td>
           <td><%= link_to 'Show', fichier %></td>
-          <td><%= link_to 'Edit', edit_fichier_path(fichier) %></td>
-          <td><%= link_to 'Destroy', fichier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if can? :manage, @survey %>
+            <td><%= link_to 'Edit', edit_fichier_path(fichier) %></td>
+            <td><%= link_to 'Destroy', fichier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

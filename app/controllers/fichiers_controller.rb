@@ -1,4 +1,6 @@
 class FichiersController < ApplicationController
+  load_and_authorize_resource
+  before_action :authenticate_user!
   before_action :set_fichier, only: [:show, :edit, :update, :destroy]
 
   # GET /fichiers
@@ -20,6 +22,7 @@ class FichiersController < ApplicationController
 
   # GET /fichiers/1/edit
   def edit
+    @surveys = Survey.all
   end
 
   # POST /fichiers

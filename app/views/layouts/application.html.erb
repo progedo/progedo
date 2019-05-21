@@ -13,28 +13,32 @@
   <body>
     <header class="navbar" role="navigation">
       <div class="navbar__container ">
-        <a class="navbar__home" href="">
-          <img class="navbar__logo" src="/images/progedo.png"
-            alt="template.data.gouv.fr" /><span>Progedo est un service réservé aux personnels des établissements d'enseignement supérieur et de recherche pour demander l'accès à des fichiers d'enquêtes en sciences humaines et sociales</span>
-        </a>
+        <div class="navbar__container ">
+          <a class="navbar__home" href="">
+            <img class="navbar__logo" src="/images/progedo.png"
+              alt="template.data.gouv.fr" /><span class="haut">Progedo est un service réservé aux personnels des établissements d'enseignement supérieur et de recherche pour demander l'accès à des fichiers d'enquêtes en sciences humaines et sociales</span>
+          </a>
+        </div>
 
-        <nav>
-          <% if current_user %>
-            <ul class="nav__links">
-              <li class="nav__item"> <%= link_to 'Enquêtes', '/surveys' %> </li>
-              <li class="nav__item"> <%= link_to 'Demandes', '/requests' %> </li>
-              <li class="nav__item"> <%= link_to 'Fichiers', '/fichiers' %> </li>
-              <li class="nav__item"> <%= link_to 'Modifier Profil', edit_user_registration_path %> </li>
-              <li class="nav__item"> <%= link_to 'Deconnexion', destroy_user_session_path, method: :delete %> </li>
-            </ul>
-            <strong><%= current_user.email %></strong>.
-          <% else %>
-            <ul class="nav__links">
-              <li class="nav__item"> <%= link_to 'Créer un compte', new_user_registration_path %> </li>
-              <li class="nav__item"> <%= link_to 'Se Connecter', new_user_session_path %> </li>
-            </ul>
-          <% end %>
-        </nav>
+        <div class="navbar__container ">
+          <nav>
+            <% if user_signed_in? %>
+              <ul class="nav__links">
+                <li class="nav__item"> <%= link_to 'Enquêtes', '/surveys', :class => "menu" %> </li>
+                <li class="nav__item"> <%= link_to 'Requêtes', '/requests', :class => "menu" %> </li>
+                <li class="nav__item"> <%= link_to 'Fichiers', '/fichiers', :class => "menu" %> </li>
+                <li class="nav__item"> <%= link_to 'Modifier Profil', edit_user_registration_path, :class => "menu" %> </li>
+                <li class="nav__item"> <%= link_to 'Deconnexion', destroy_user_session_path, method: :delete, :class => "menu" %> </li>
+              </ul>
+              <strong><%= current_user.email %></strong>.
+            <% else %>
+              <ul class="nav__links">
+                <li class="nav__item"> <%= link_to 'Créer un compte', new_user_registration_path, :class => "menu" %> </li>
+                <li class="nav__item"> <%= link_to 'Se Connecter', new_user_session_path, :class => "menu" %> </li>
+              </ul>
+            <% end %>
+          </nav>
+        </div>
       </div>
     </header>
 
