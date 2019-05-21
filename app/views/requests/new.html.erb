@@ -1,10 +1,11 @@
-<h1>New Request</h1>
-
+<div class="page_title">
+  <h1>Nouvelle Requête</h1>
+</div>
 <ul class="field" id="selected_items"> </ul>
 
 <div class="field">
   <%= form_tag "/requests/new", method: "post" do %>
-  	<p> Selectiponner un fichier</p>
+    <p> Selectiponner un fichier</p>
     <input list="fic" type="text" name="choix_fichier" id="choix_fichier">
     <datalist id="fic">
       <% @fichiers.each do |fichier| %>

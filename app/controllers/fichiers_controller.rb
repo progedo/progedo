@@ -22,6 +22,7 @@ class FichiersController < ApplicationController
 
   # GET /fichiers/1/edit
   def edit
+    @surveys = Survey.all
   end
 
   # POST /fichiers

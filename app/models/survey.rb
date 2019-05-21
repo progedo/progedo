@@ -2,5 +2,5 @@ class Survey < ApplicationRecord
   resourcify
   extend FriendlyId
   friendly_id :title, use: :slugged
-  has_one :fichier
+  has_one :fichier, :dependent => :destroy
 end
