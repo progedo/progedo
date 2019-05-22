@@ -4,6 +4,11 @@
   <strong>Chemin:</strong>
   <%= @fichier.chemin %>
 </p>
+	<strong>Enquête:</strong>
+	<%= link_to(@fichier.survey.title, @fichier.survey) %>
+<p>
+
+</p>
 
 <%= link_to 'Edit', edit_fichier_path(@fichier) %> |
 <%= link_to 'Back', fichiers_path %>

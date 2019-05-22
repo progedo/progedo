@@ -2,25 +2,31 @@
 
 <h1>Fichiers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Chemin</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @fichiers.each do |fichier| %>
+<div class="panel">
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= fichier.chemin %></td>
-        <td><%= link_to 'Show', fichier %></td>
-        <td><%= link_to 'Edit', edit_fichier_path(fichier) %></td>
-        <td><%= link_to 'Destroy', fichier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Chemin</th>
+        <th>Enquête</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @fichiers.each do |fichier| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+          <td><%= fichier.chemin %></td>
+          <td><%= fichier.survey.title %></td>
+          <td><%= link_to 'Show', fichier %></td>
+          <% if can? :manage, @survey %>
+            <td><%= link_to 'Edit', edit_fichier_path(fichier) %></td>
+            <td><%= link_to 'Destroy', fichier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

@@ -4,9 +4,14 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.present? && user.back_office?
-      can :manage, Fichier
-      can :manage, User
+    user ||= User.new
+    if (!user.back_office?) && user.present?
+      #can :manage, Request, user_id: user.id
+      can :read, [Survey, Fichier]
+      can [:update, :destroy, :read], Request, user_id: user.id
+      can :create, Request
+    elsif user.back_office? && user.present?
+      can :manage, :all
     else
       can :read, :all
     end
