@@ -6,7 +6,7 @@
 <div class="field">
   <%= form_tag "/requests/new", method: "post" do %>
     <p> Selectiponner un fichier</p>
-    <input list="fic" type="text" name="choix_fichier" id="choix_fichier">
+    <input list="fic" type="text" name="choix_fichier" id="choix_fichier" required>
     <datalist id="fic">
       <% @fichiers.each do |fichier| %>
         <option value = "<%= fichier.id %>" > <%= fichier.chemin %> </option>
