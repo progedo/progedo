@@ -2,7 +2,7 @@
 
 Fabricator(:user) do
   email { sequence(:email) { |i| "user_#{i}@test.com" } }
-  password "cheikh"
+  password "password1234"
 end
 
 Fabricator(:back_office, from: :user) do

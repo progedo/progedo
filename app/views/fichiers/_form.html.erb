@@ -16,10 +16,10 @@
     <%= form.text_field :chemin, :required => true %>
 
     <p> Selectiponner une enquête </p>
-    <input list="fic" type="text" name="choix_survey" id="choix_survey" required>
+    <input list="fic" type="text" name="choix_survey" id="choix_survey" value="<%= @fichier.survey.try(:title) %>" required>
     <datalist id="fic">
       <% @surveys.each do |survey| %>
-        <option value = "<%= survey.id %>" > <%= survey.title %> </option>
+        <option value = "<%= survey.id %>" > <%= survey.try(:title) %> </option>
       <% end %>
     </datalist>
   </div>

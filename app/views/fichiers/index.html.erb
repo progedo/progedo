@@ -16,7 +16,7 @@
       <% @fichiers.each do |fichier| %>
         <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
           <td><%= fichier.chemin %></td>
-          <td><%= fichier.survey.title %></td>
+          <td><%= fichier.survey.try(:title) %></td>
           <td><%= link_to 'Show', fichier %></td>
           <% if can? :manage, @survey %>
             <td><%= link_to 'Edit', edit_fichier_path(fichier) %></td>

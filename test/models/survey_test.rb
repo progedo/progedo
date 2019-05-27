@@ -1,9 +1,7 @@
 require 'test_helper'
 
 class SurveyTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+	
   test "a une fabrique valid" do
     assert Fabricate.build(:survey).valid?
   end

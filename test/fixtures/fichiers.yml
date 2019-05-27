@@ -1,7 +1,41 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 10
   chemin: MyString
+  survey_id: 50
 
 two:
   chemin: MyString
+  survey_id: 60
+
+fichier_1_user_front_office_1:
+  id: 11
+  chemin: MyString
+  survey_id: 50
+
+fichier_2_user_front_office_1:
+  id: 12
+  chemin: MyString
+  survey_id: 50
+
+fichier_1_user_front_office_2:
+  id: 13
+  chemin: MyString
+  survey_id: 50
+
+fichier_2_user_front_office_2:
+  id: 14
+  chemin: MyString
+  survey_id: 50
+
+fichier_1_user_back_office:
+  id: 15
+  chemin: MyString
+  survey_id: 50
+
+fichier_2_user_back_office:
+  id: 16
+  chemin: MyString
+  survey_id: 50
+
