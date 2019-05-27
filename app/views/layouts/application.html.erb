@@ -33,7 +33,7 @@
               <strong><%= current_user.email %></strong>.
             <% else %>
               <ul class="nav__links">
-                <li class="nav__item"> <%= link_to 'Créer un compte', new_user_registration_path, :class => "menu" %> </li>
+                <li class="nav__item"> <%= link_to 'S\'inscrire', new_user_registration_path, :class => "menu" %> </li>
                 <li class="nav__item"> <%= link_to 'Se Connecter', new_user_session_path, :class => "menu" %> </li>
               </ul>
             <% end %>
