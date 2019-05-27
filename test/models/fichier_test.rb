@@ -11,12 +11,6 @@ class FichierTest < ActiveSupport::TestCase
     assert_equal "chemin", fichier.chemin
   end
 
-=begin
-  test "invalide sans survey" do
-    assert Fabricate.build(:fichier, survey_id: nil).invalid?
-  end
-=end
-
   test "supprime le fichier quand le survey correspondant est supprimé" do
     survey = Fabricate(:survey)
     fichier = Fabricate(:fichier, chemin: "fichier test a", survey: survey)
@@ -24,6 +18,5 @@ class FichierTest < ActiveSupport::TestCase
       survey.destroy
     end
   end
-
 
 end

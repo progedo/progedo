@@ -29,7 +29,7 @@ class FichiersController < ApplicationController
   # POST /fichiers.json
   def create
     @fichier = Fichier.new(fichier_params)
-    @fichier.survey_id = params[:choix_survey]
+    @fichier.survey_id = params[:survey_id]
     @surveys = Survey.all
 
     respond_to do |format|

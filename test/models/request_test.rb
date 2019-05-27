@@ -21,7 +21,7 @@ class RequestTest < ActiveSupport::TestCase
   end
 
   test "invalide sans fichier" do
-    assert Fabricate.build(:request, fichiers: nil).valid?
+    assert Fabricate.build(:request, fichiers: []).valid?
   end
 
 end
