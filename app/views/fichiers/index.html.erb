@@ -30,4 +30,6 @@
 
 <br>
 
-<%= link_to 'Nouveau fichier', new_fichier_path %>
+<% if can? :manage, @fichier %>
+  <%= link_to 'Nouveau fichier', new_fichier_path %>
+<% end %>

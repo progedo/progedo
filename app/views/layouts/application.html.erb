@@ -12,7 +12,7 @@
 
   <body>
     <header class="navbar" role="navigation">
-      <div class="navbar__container ">
+      <div class="navbar__container">
         <div class="navbar__container ">
           <a class="navbar__home" href="">
             <img class="navbar__logo" src="/images/progedo.png"
@@ -20,24 +20,56 @@
           </a>
         </div>
 
-        <div class="navbar__container ">
-          <nav>
-            <% if user_signed_in? %>
-              <ul class="nav__links">
-                <li class="nav__item"> <%= link_to 'Enquêtes', '/surveys', :class => "menu" %> </li>
-                <li class="nav__item"> <%= link_to 'Requêtes', '/requests', :class => "menu" %> </li>
-                <li class="nav__item"> <%= link_to 'Fichiers', '/fichiers', :class => "menu" %> </li>
-                <li class="nav__item"> <%= link_to 'Modifier Profil', edit_user_registration_path, :class => "menu" %> </li>
-                <li class="nav__item"> <%= link_to 'Deconnexion', destroy_user_session_path, method: :delete, :class => "menu" %> </li>
-              </ul>
-              <strong><%= current_user.email %></strong>.
-            <% else %>
-              <ul class="nav__links">
-                <li class="nav__item"> <%= link_to 'S\'inscrire', new_user_registration_path, :class => "menu" %> </li>
-                <li class="nav__item"> <%= link_to 'Se Connecter', new_user_session_path, :class => "menu" %> </li>
-              </ul>
-            <% end %>
-          </nav>
+        <div class="navbar__container">
+            <nav class="menu_a_droite">
+              <% if user_signed_in? %>
+                <ul>
+
+                  <li class="menu"> <%= link_to 'Enquêtes', '#', :class => "menu" %>
+                    <ul>
+                      <% if can? :manage, @survey %>
+                        <li> <%= link_to 'Nouvelle enquête', new_survey_path, :class => "menu" %> </li>
+                      <% end %>
+                      <li> <%= link_to 'Liste des enquêtes', surveys_path, :class => "menu" %> </li>
+                    </ul>
+                  </li>
+
+                  <li class="menu"> <%= link_to 'Requêtes', '#', :class => "menu" %>
+                    <ul>
+                      <% if can? :manage, @request %>
+                        <li> <%= link_to 'Nouvelle requête', new_request_path, :class => "menu" %> </li>
+                      <% end %>
+                      <li> <%= link_to 'Liste des requêtes', requests_path, :class => "menu" %> </li>
+                    </ul>
+                  </li>
+
+                  <li class="menu"> <%= link_to 'Fichiers', '#', :class => "menu" %>
+                    <ul>
+                      <% if can? :manage, @fichier %>
+                        <li> <%= link_to 'Nouveau fichier', new_fichier_path, :class => "menu" %> </li>
+                      <% end %>
+                      <li> <%= link_to 'Liste des fichiers', fichiers_path, :class => "menu" %> </li>
+                    </ul>
+                  </li>
+
+                  <li class="menu"> <%= link_to current_user.nom_complet, '#', :class => "menu" %>
+                    <ul>
+                      <li> <%= link_to 'Modifier Profil', edit_user_registration_path, :class => "menu" %> </li> </li>
+                      <li> <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete, :class => "menu" %> </li>
+                    </ul>
+                  </li>
+
+                </ul>
+              <% else %>
+                <nav>
+                  <ul>
+                    <li class="menu"> <%= link_to 'Accueil', surveys_path, :class => "menu" %> </li>
+                    <li class="menu"> <%= link_to 'S\'inscrire', new_user_registration_path, :class => "menu" %> </li>
+                    <li class="menu"> <%= link_to 'Se Connecter', new_user_session_path, :class => "menu" %> </li>
+                  </ul>
+                </nav>
+              <% end %>
+            </nav>
         </div>
       </div>
     </header>

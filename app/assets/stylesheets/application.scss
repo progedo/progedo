@@ -36,3 +36,54 @@ text-align: center
 .page_title {
 	margin: 20px;
 }
+
+li.menu {
+list-style:none !important;
+color:#FFF;
+padding:10px;
+font-size:20px;
+text-decoration:none;
+}
+ 
+nav ul {
+background-color:#64abfb;
+padding:0;
+margin:0;
+min-width: 150px;
+}
+ 
+nav ul li {
+list-style: none;
+line-height:44px;
+float:left;
+background-color: white;
+}
+ 
+nav ul li a {
+color:#E43D15;
+padding:10px;
+font-size:15px;
+text-decoration:none;
+}
+ 
+li.menu a:hover {
+border-bottom:3px #E43D15 solid;
+}
+nav ul li ul { display:none; } /* Rend le menu déroulant caché par défaut */
+ 
+nav ul li:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop */
+z-index:99999;
+display:list-item !important;
+position:absolute;
+margin-top:5px;
+margin-left:-1px;
+}
+ 
+nav ul li:hover ul li {
+float:none;
+}
+
+.menu_a_droite {
+	margin-top:-10px;
+	position: absolute; right: 40px;
+}

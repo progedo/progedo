@@ -12,4 +12,9 @@ class User < ApplicationRecord
     self.back_office = false if self.back_office.blank?
   end
 
+  def nom_complet
+    nom_complet = [first_name, name].join(" ").strip
+    nom_complet.present? ? nom_complet : email
+  end
+
 end
