@@ -27,6 +27,9 @@ background-color: #effeef;
 span.haut:hover {
 color: #ED3D05;
 }
+a.navbar__home:hover {
+background-color: white;
+}
 
 .haut {
 color: #ED3D05;
@@ -76,7 +79,8 @@ z-index:99999;
 display:list-item !important;
 position:absolute;
 margin-top:5px;
-margin-left:-1px;
+margin-left: auto;
+margin-right: auto;
 }
  
 nav ul li:hover ul li {
