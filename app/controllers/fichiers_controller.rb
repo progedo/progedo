@@ -75,6 +75,6 @@ class FichiersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fichier_params
-      params.require(:fichier).permit(:chemin)
+      params.require(:fichier).permit(:chemin, :survey_id)
     end
 end

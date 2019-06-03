@@ -22,4 +22,14 @@ class UserTest < ActiveSupport::TestCase
     assert Fabricate.build(:user, password: "a-password").valid?
   end
 
+  test "renvoie le nom complet de l'utilisateur" do
+    utilisateur = Fabricate(:user, name: "Astier", first_name: "Alexandre")
+    assert_equal "Alexandre ASTIER", utilisateur.nom_complet
+  end
+
+  test "renvoie l'email pour le nom complet si pas de prenom ou pas de nom" do
+    utilisateur = Fabricate(:user, name: nil, first_name: nil, email: "alexandre@astier.com")
+    assert_equal "alexandre@astier.com", utilisateur.nom_complet
+  end
+
 end

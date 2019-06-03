@@ -1,4 +1,28 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Prénom:</strong>
+  <%= @user.try(:first_name).titleize %>
+</p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @user.try(:name).upcase %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.try(:email) %>
+</p>
+
+<p>
+  <strong>Statut:</strong>
+  <% if @user.back_office %>
+  	Administrateur
+  <% else %>
+  	Chercheur
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
