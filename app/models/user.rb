@@ -13,7 +13,7 @@ class User < ApplicationRecord
   end
 
   def nom_complet
-    nom_complet = [first_name, name].join(" ").strip
+    nom_complet = [first_name.titleize, name.upcase].join(" ").strip
     nom_complet.present? ? nom_complet : email
   end
 

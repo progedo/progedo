@@ -1,0 +1,45 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name, 'Prénom' %>
+    <%= form.text_field :first_name, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name, 'Nom' %>
+    <%= form.text_field :name, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, 'Adresse électronique' %><br />
+    <%= form.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password, 'Mot de passe' %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> caractères minimum)</em>
+    <% end %><br />
+    <%= form.password_field :password, autocomplete: "new-password", :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation, 'Confirmer le mot de passe' %><br />
+    <%= form.password_field :password_confirmation, autocomplete: "new-password", :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

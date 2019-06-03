@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   post 'requests/new' => 'requests#selection'
 
-  devise_for :users
+  devise_for :users, :path_prefix => 'my'
+  resources :users
   resources :requests
   resources :surveys
   resources :fichiers
