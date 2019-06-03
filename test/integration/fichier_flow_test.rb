@@ -18,7 +18,7 @@ class FichierFlowTest < ActionDispatch::IntegrationTest
 		get "/fichiers"
 		follow_redirect!
 		assert_response :success
-		assert_select "h2", "Log in"
+		assert_select "h2", "Se connecter"
 	end
 
 	test "back office user can create an fichier" do
@@ -27,7 +27,7 @@ class FichierFlowTest < ActionDispatch::IntegrationTest
 		assert_response :success
 
 		post "/fichiers",
-		params: { fichier: { chemin: "can create", choix_survey: @survey.id } }
+		params: { fichier: { chemin: "can create", survey_id: @fichier.survey_id } }
 		assert_response :redirect
 		follow_redirect!
 		assert_response :success
@@ -40,7 +40,7 @@ class FichierFlowTest < ActionDispatch::IntegrationTest
 		assert_response :success
 
 		post "/fichiers",
-		params: { fichier: { chemin: "can update", choix_survey: @survey.id } }
+		params: { fichier: { chemin: "can update", survey_id: @fichier.survey_id } }
 		assert_response :redirect
 		follow_redirect!
 		assert_response :success

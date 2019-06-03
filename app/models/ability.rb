@@ -13,7 +13,7 @@ class Ability
     elsif user.back_office? && user.present?
       can :manage, :all
     else
-      can :read, :all
+      can :read, [Survey]
     end
   end
 end

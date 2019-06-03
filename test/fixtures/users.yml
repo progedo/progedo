@@ -6,13 +6,17 @@
 #
 one: {
   encrypted_password: $2a$11$/gSEZDfkSzfppQeK3wrdTO1Z3..wLAST5G75c22pUI5vw8wnfNcue,
-  email: alice@example.com
+  email: alice@example.com,
+  first_name: one,
+  name: one
 }
 # column: value
 #
 two: {
   encrypted_password: $2a$11$/gSEZDfkSzfppQeK3wrdTO1Z3..wLAST5G75c22pUI5vw8wnfNcue,
-  email: bob@example.com
+  email: bob@example.com,
+  first_name: two,
+  name: two
 }
 # column: value
 
@@ -21,15 +25,21 @@ user_back_office:
   email: user_back_office@test.test.com
   encrypted_password: $2a$11$/gSEZDfkSzfppQeK3wrdTO1Z3..wLAST5G75c22pUI5vw8wnfNcue
   back_office: true
+  first_name: back
+  name: office
 
 user_front_office_1:
   id: 16
   email: user_front_office_1@test.test.com
   encrypted_password: $2a$11$/gSEZDfkSzfppQeK3wrdTO1Z3..wLAST5G75c22pUI5vw8wnfNcue
   back_office: false
+  first_name: front_1
+  name: office
 
 user_front_office_2:
   id: 17
   email: user_front_office_2@test.test.com
   encrypted_password: $2a$11$/gSEZDfkSzfppQeK3wrdTO1Z3..wLAST5G75c22pUI5vw8wnfNcue
   back_office: false
+  first_name: front_2
+  name: office

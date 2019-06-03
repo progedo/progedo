@@ -52,6 +52,15 @@
                     </ul>
                   </li>
 
+                  <% if can? :manage, @user %>
+                    <li class="menu"> <%= link_to 'Utilisateurs', '#', :class => "menu" %>
+                      <ul>
+                          <li> <%= link_to 'Nouvel utilisateur', new_user_path, :class => "menu" %> </li>
+                          <li> <%= link_to 'Liste des utilisateurs', users_path, :class => "menu" %> </li>
+                      </ul>
+                    </li>
+                  <% end %>
+
                   <li class="menu"> <%= link_to current_user.nom_complet, '#', :class => "menu" %>
                     <ul>
                       <li> <%= link_to 'Modifier Profil', edit_user_registration_path, :class => "menu" %> </li> </li>

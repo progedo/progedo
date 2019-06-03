@@ -20,7 +20,7 @@ class RequestFlowTest < ActionDispatch::IntegrationTest
 		get "/requests"
 		follow_redirect!
 		assert_response :success
-		assert_select "h2", "Log in"
+		assert_select "h2", "Se connecter"
 	end
 
 	test "signed user can create an request" do
