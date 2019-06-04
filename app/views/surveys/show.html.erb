@@ -1,18 +1,56 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @survey.title %>
-</p>
+<div class="panel">
+  <table class="table">
+	<tr>
+		<th>Titre</th>
+		<td><%= @survey.try(:title) %></td>
+	</tr>
+	<tr>
+		<th>Fichier</th>
+		<td>
+			<% if can? :manage, Fichier %>
+				<%= link_to @survey.fichier.chemin, @survey.fichier %>
+			<% else %>
+				<%= @survey.fichier.chemin %>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<th>Date d'ajout</th>
+		<td><%= @survey.try(:created_at).strftime("%d/%m/%Y à %H:%M") %></td>
+	</tr>
+	<tr>
+		<th>Mise à jour</th>
+		<td><%= @survey.try(:updated_at).strftime("%d/%m/%Y à %H:%M") %></td>
+	</tr>
+  </table>
+</div>
 
-<p>
-  <strong>Abstract:</strong>
-  <%= @survey.abstract %>
-</p>
+<div class="panel">
+	<table class="table">
+		<tr>
+			<th class="center">Description</th>
+		</tr>
+		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+			<td class="not_mapped_style" style="text-align:center"><%= @survey.try(:abstract) %></td>
+		</tr>
+	</table>
+</div>
 
-<%= link_to 'Edit', edit_survey_path(@survey) %> |
-<%= link_to 'Back', surveys_path %>
+<br>
 
-<a href="/requests/new" class="commander">
-Commander
-</a>
+<% if can? :manage, @survey %>
+
+	<div class="actions">
+		<%= button_to 'Modifier', edit_survey_path(@survey), :method => :get %>
+	</div>
+
+	<div class="actions">
+		<%= button_to 'Commander', new_request_path, :method => :get %>
+	</div>
+<% end %>
+
+<div class="actions">
+	<%= button_to 'Retour', surveys_path, :method => :get %>
+</div>

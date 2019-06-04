@@ -24,7 +24,6 @@
             <nav class="menu_a_droite">
               <% if user_signed_in? %>
                 <ul>
-
                   <li class="menu"> <%= link_to 'Enquêtes', '#', :class => "menu" %>
                     <ul>
                       <% if can? :manage, @survey %>
@@ -36,7 +35,7 @@
 
                   <li class="menu"> <%= link_to 'Requêtes', '#', :class => "menu" %>
                     <ul>
-                      <% if can? :manage, @request %>
+                      <% if can? :create, Request %>
                         <li> <%= link_to 'Nouvelle requête', new_request_path, :class => "menu" %> </li>
                       <% end %>
                       <li> <%= link_to 'Liste des requêtes', requests_path, :class => "menu" %> </li>
@@ -63,30 +62,25 @@
 
                   <li class="menu"> <%= link_to current_user.nom_complet, '#', :class => "menu" %>
                     <ul>
-                      <li> <%= link_to 'Modifier Profil', edit_user_registration_path, :class => "menu" %> </li> </li>
+                      <li> <%= link_to 'Modifier Profil', edit_user_registration_path, :class => "menu" %> </li>
                       <li> <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete, :class => "menu" %> </li>
                     </ul>
                   </li>
 
                 </ul>
               <% else %>
-                <nav>
-                  <ul>
-                    <li class="menu"> <%= link_to 'Accueil', surveys_path, :class => "menu" %> </li>
-                    <li class="menu"> <%= link_to 'S\'inscrire', new_user_registration_path, :class => "menu" %> </li>
-                    <li class="menu"> <%= link_to 'Se Connecter', new_user_session_path, :class => "menu" %> </li>
-                  </ul>
-                </nav>
+                <ul>
+                  <li class="menu"> <%= link_to 'Accueil', surveys_path, :class => "menu" %> </li>
+                  <li class="menu"> <%= link_to 'S\'inscrire', new_user_registration_path, :class => "menu" %> </li>
+                  <li class="menu"> <%= link_to 'Se Connecter', new_user_session_path, :class => "menu" %> </li>
+                </ul>
               <% end %>
             </nav>
         </div>
       </div>
     </header>
 
-    <main class='<%= controller.controller_name %>'>
-
-      
-      
+    <main class='<%= controller.controller_name %>'>      
       <%= yield %>
     </main>
   </body>

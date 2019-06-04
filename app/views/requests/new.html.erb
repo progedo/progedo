@@ -16,9 +16,9 @@
   <% end %>
 </div>
 
-<%= render 'form', request: @request %>
+<%= render 'form', request: @request, button: 'Créer Requête' %>
 
-<%= link_to 'Back', requests_path %>
+<%= button_to 'Retour', requests_path, :method => :get %>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {

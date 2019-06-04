@@ -2,7 +2,13 @@
 	<h1>Modifier Requête</h1>
 </div>
 
-<%= render 'form', request: @request %>
+<%= render 'form', request: @request, button: 'Modifier Requête' %>
 
-<%= link_to 'Show', @request %> |
-<%= link_to 'Back', requests_path %>
+<div class="actions">
+	<%= button_to 'Voir', @request, :method => :get %>
+</div>
+
+<div class="actions">
+	<%= button_to 'Retour', requests_path, :method => :get %>
+</div>
+

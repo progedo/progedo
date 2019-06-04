@@ -16,7 +16,12 @@
 
 tr.list_line_odd {
     background-color: #effeef;
-  }
+}
+
+a:hover {
+	color: black;
+	background-color: #effeef;
+}
 
 a.menu:hover {
 color: #ED3D05;
@@ -63,7 +68,6 @@ background-color: white;
 }
  
 nav ul li a {
-color:#E43D15;
 padding:10px;
 font-size:15px;
 text-decoration:none;
@@ -90,4 +94,26 @@ float:none;
 .menu_a_droite {
 	margin-top:-10px;
 	position: absolute; right: 40px;
+}
+
+.bouton_bas {
+	line-height:44px;
+	background-color: white;
+	font-size:20px;
+   text-align: center;
+}
+
+.bouton_ba:hover {
+border-bottom:3px #E43D15 solid;
+}
+
+tr:nth-child(even) {background: #effeef}
+
+th {
+	column-width: 120px;
+}
+
+th.center {
+	text-align: center;
+	column-width: auto;
 }

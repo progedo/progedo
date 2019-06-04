@@ -8,7 +8,7 @@
 <table class="table">
   <tbody>
     <% @surveys.each do |survey| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      <tr>
         <td class="abstract">
           <h1><%= survey.title %></h1>
           <p>
@@ -17,10 +17,10 @@
         </td>
         <td class="actions">
           <ul>
-        <li><%= link_to 'Show', survey %></li>
+        <li><%= link_to 'Voir', survey %></li>
         <% if can? :manage, @survey %>
-          <li><%= link_to 'Edit', edit_survey_path(survey) %></li>
-          <li><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <li><%= link_to 'Modifier', edit_survey_path(survey) %></li>
+          <li><%= link_to 'Supprimer', survey, method: :delete, data: { confirm: 'Are you sure?' } %></li>
         <% end %>
           </ul>
         </td>
@@ -31,6 +31,8 @@
 </div>
 
 <br>
-<% if can? :manage, @survey %>
-  <%= link_to 'New Survey', new_survey_path %>
+<% if can? :manage, Survey %>
+  <center>
+  <%= link_to 'Novelle Enquête', new_survey_path, :class => "bouton_bas menu" %>
+  </center>
 <% end %>
