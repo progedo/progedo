@@ -12,6 +12,17 @@ Survey.create!(title: 'Enquête de test',
 
     })
 
+Role.create(name: :back_office)
+Role.create(name: :front_office)
+user1 = User.create(email: 'back_office@gmail.com',
+								    password: 'password1234',
+								    password_confirmation: 'password1234')
+user1.add_role(:back_office)
+user2 = User.create(email: 'front_office@gmail.com',
+								    password: 'password1234',
+								    password_confirmation: 'password1234')
+user2.add_role(:front_office)
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #

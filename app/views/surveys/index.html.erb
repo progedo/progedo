@@ -17,6 +17,7 @@
         </td>
         <td class="actions">
           <ul>
+
         <li><%= link_to 'Show', survey %></li>
         <% if can? :manage, @survey %>
           <li><%= link_to 'Edit', edit_survey_path(survey) %></li>
