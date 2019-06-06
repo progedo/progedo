@@ -6,7 +6,7 @@ class FichiersController < ApplicationController
   # GET /fichiers
   # GET /fichiers.json
   def index
-    @fichiers = Fichier.all
+    @fichiers = Fichier.all.order('chemin ASC')
   end
 
   # GET /fichiers/1

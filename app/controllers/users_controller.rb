@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.sort{|x,y| [x.name, x.first_name] <=> [y.name, y.first_name]}
+    @users = User.all.order('name ASC')
   end
 
   # GET /users/1
