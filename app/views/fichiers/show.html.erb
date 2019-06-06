@@ -1,13 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Chemin:</strong>
-  <%= @fichier.chemin %>
-</p>
-<p>
-	<strong>Enquête:</strong>
-	<%= link_to(@fichier.survey.title, @fichier.survey) %>
-</p>
+<div class="page_title">
+  <h1>Fichier</h1>
+</div>
 
-<%= link_to 'Edit', edit_fichier_path(@fichier) %> |
-<%= link_to 'Back', fichiers_path %>
+<div class="panel">
+  <table class="table">
+	<tr>
+		<th>Chemin</th>
+		<td><%= @fichier.try(:chemin) %></td>
+	</tr>
+
+	<tr>
+		<th>Enquête</th>
+		<% if can? :read, Survey %>
+			<td><%= link_to(@fichier.survey.title, @fichier.survey) %></td>
+		<% else %>
+			<td><%= @fichier.survey.title %></td>
+		<% end %>
+	</tr>
+	
+	<tr>
+		<th>Date d'ajout</th>
+		<td><%= @fichier.try(:created_at).strftime("%d/%m/%Y à %H:%M") %></td>
+	</tr>
+	<tr>
+		<th>Mise à jour</th>
+		<td><%= @fichier.try(:updated_at).strftime("%d/%m/%Y à %H:%M") %></td>
+	</tr>
+  </table>
+</div>
+
+<br>
+
+<% if can? :manage, @fichier %>
+
+	<div class="actions">
+		<%= button_to 'Modifier', edit_fichier_path(@fichier), :method => :get, :class => "button" %>
+	</div>
+
+<% end %>
+
+<div class="actions">
+	<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
+</div>

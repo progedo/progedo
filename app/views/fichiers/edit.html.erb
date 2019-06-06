@@ -1,6 +1,11 @@
 <h1>Modifier Fichier</h1>
 
-<%= render 'form', fichier: @fichier, surveys: @surveys %>
+<%= render 'form', fichier: @fichier, surveys: @surveys, button: 'Modifier Fichier' %>
 
-<%= link_to 'Show', @fichier %> |
-<%= link_to 'Back', fichiers_path %>
+<div class="actions">
+	<%= button_to 'Voir', @fichier, :method => :get, :class => "button" %>
+</div>
+
+<div class="actions">
+	<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
+</div>

@@ -3,4 +3,4 @@
 </div>
 <%= render 'form', survey: @survey, button: 'Créer Enquête' %>
 
-<%= button_to 'Retour', surveys_path, :method => :get %>
+<%= button_to 'Retour', :back, :method => :get, :class => "button" %>

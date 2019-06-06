@@ -5,9 +5,9 @@
 <%= render 'form', survey: @survey, button: 'Modifier Enquête' %>
 
 <div class="actions">
-	<%= button_to 'Voir', @survey, :method => :get %>
+	<%= button_to 'Voir', @survey, :method => :get, :class => "button" %>
 </div>
 
 <div class="actions">
-	<%= button_to 'Retour', surveys_path, :method => :get %>
+	<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
 </div>

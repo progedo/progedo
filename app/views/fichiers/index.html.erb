@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Fichiers</h1>
+<div class="page_title">
+  <h1>Fichiers</h1>
+</div>
 
 <div class="panel">
   <table class="table">
@@ -17,10 +19,10 @@
         <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
           <td><%= fichier.chemin %></td>
           <td><%= fichier.survey.try(:title) %></td>
-          <td><%= link_to 'Show', fichier %></td>
+          <td><%= link_to 'Voir', fichier %></td>
           <% if can? :manage, @survey %>
-            <td><%= link_to 'Edit', edit_fichier_path(fichier) %></td>
-            <td><%= link_to 'Destroy', fichier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Modifier', edit_fichier_path(fichier) %></td>
+            <td><%= link_to 'Supprimer', fichier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         </tr>
       <% end %>
@@ -30,6 +32,8 @@
 
 <br>
 
-<% if can? :manage, @fichier %>
-  <%= link_to 'Nouveau fichier', new_fichier_path %>
+<% if can? :manage, Fichier %>
+  <center>
+  <%= link_to 'Nouveau Fichier', new_fichier_path, :class => "bouton_bas menu" %>
+  </center>
 <% end %>

@@ -29,6 +29,11 @@ text-decoration:none;
 background-color: #effeef;
 }
 
+span {
+	background-color: #effeef;
+	margin-bottom: 5px;
+}
+
 span.haut:hover {
 color: #ED3D05;
 }
@@ -42,14 +47,21 @@ text-align: center
 }
 
 .page_title {
-	margin: 20px;
+	height: 70px;
+	background-color: #effeef;
+	padding:21px;
+	margin-bottom: 30px;
+}
+.page_title:hover {
+	background-color: white;
+	color: #ED3D05 !important;
 }
 
 li.menu {
 list-style:none !important;
 color:#FFF;
 padding:10px;
-font-size:20px;
+font-size:30px;
 text-decoration:none;
 }
  
@@ -62,21 +74,22 @@ min-width: 150px;
  
 nav ul li {
 list-style: none;
-line-height:44px;
+line-height:40px;
 float:left;
-background-color: white;
 }
  
 nav ul li a {
+color: #666666;
 padding:10px;
 font-size:15px;
 text-decoration:none;
+background-color: rgba(169, 169, 169, 0); /* Rendre le menu transparent */
 }
  
 li.menu a:hover {
 border-bottom:3px #E43D15 solid;
 }
-nav ul li ul { display:none; } /* Rend le menu déroulant caché par défaut */
+nav ul li ul { display:none; background-color: white; } /* Rend le menu déroulant caché par défaut */
  
 nav ul li:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop */
 z-index:99999;
@@ -98,13 +111,14 @@ float:none;
 
 .bouton_bas {
 	line-height:44px;
-	background-color: white;
-	font-size:20px;
+	background-color: #effeef;
+	font-size:15px;
    text-align: center;
 }
 
-.bouton_ba:hover {
-border-bottom:3px #E43D15 solid;
+.bouton_bas:hover {
+	background-color: white;
+	border-bottom:3px #E43D15 solid;
 }
 
 tr:nth-child(even) {background: #effeef}
@@ -116,4 +130,29 @@ th {
 th.center {
 	text-align: center;
 	column-width: auto;
+}
+
+.button {
+	color: #666666 !important;
+	line-height:20px;
+	font-size:20px;
+	font-weight: bold;
+	background-color: #d0efd0 !important;
+}
+
+.button:hover {
+	color: #ED3D05 !important;
+	background-color: white !important;
+}
+
+h2 {
+	color:#666666;
+}
+
+h1 {
+	color:#666666;
+}
+
+h3 {
+	color:#666666;
 }

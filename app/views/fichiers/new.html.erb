@@ -1,6 +1,6 @@
 <div class="page_title">
 	<h1>Nouveau fichier</h1>
 </div>
-<%= render 'form', fichier: @fichier %>
+<%= render 'form', fichier: @fichier, button: 'Créer Fichier' %>
 
-<%= link_to 'Back', fichiers_path %>
+<%= button_to 'Retour', :back, :method => :get, :class => "button" %>

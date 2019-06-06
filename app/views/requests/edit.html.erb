@@ -5,10 +5,10 @@
 <%= render 'form', request: @request, button: 'Modifier Requête' %>
 
 <div class="actions">
-	<%= button_to 'Voir', @request, :method => :get %>
+	<%= button_to 'Voir', @request, :method => :get, :class => "button" %>
 </div>
 
 <div class="actions">
-	<%= button_to 'Retour', requests_path, :method => :get %>
+	<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
 </div>
 

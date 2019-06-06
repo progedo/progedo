@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<div class="page_title">
+  <h1>Requête</h1>
+</div>
+
 <div class="panel">
   <table class="table">
 	<tr>
@@ -29,7 +33,13 @@
 	</tr>
 	<tr>
 		<th>Auteur</th>
-		<td><%= link_to(@request.user.nom_complet, @request.user) %></td>
+		<td>
+			<% if can? :manage, User %>
+				<%= link_to(@request.user.nom_complet, @request.user) %>
+			<% else %>
+				<%= @request.user.nom_complet %>
+			<% end %>
+		</td>
 	</tr>
   </table>
 </div>
@@ -49,10 +59,10 @@
 
 <% if can? :manage, @request %>
 	<div class="actions">
-		<%= button_to 'Modifier', edit_request_path(@request), :method => :get %>
+		<%= button_to 'Modifier', edit_request_path(@request), :method => :get, :class => "button" %>
 	</div>
 <% end %>
 
 <div class="actions">
-	<%= button_to 'Retour', requests_path, :method => :get %>
+	<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
 </div>

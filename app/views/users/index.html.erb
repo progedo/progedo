@@ -9,7 +9,7 @@
     <tr>
       <th>Nom</th>
       <th>Prénom</th>
-      <th>Adresse életronique</th>
+      <th>Email</th>
       <th>Administarteur</th>
       <th colspan="3"></th>
     </tr>
@@ -17,7 +17,7 @@
 
   <tbody>
     <% @users.each do |user| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      <tr>
         <td><%= user.name.upcase  %></td>
         <td><%= user.first_name.titleize  %></td>
         <td><%= user.email %></td>
@@ -26,14 +26,17 @@
         <% else %>
           <td> Non </td>
         <% end %>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', user %></td>
+        <td><%= link_to 'Modifier', edit_user_path(user) %></td>
+        <td><%= link_to 'Supprimer', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'Nouvel Utilisateur', new_user_path %>
+<% if can? :manage, User %>
+  <center>
+  <%= link_to 'Nouvel Utilisateur', new_user_path, :class => "bouton_bas menu" %>
+  </center>
+<% end %>

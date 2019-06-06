@@ -20,9 +20,7 @@
           <tr>
             <td><%= request.title %></td>
             <td><%= request.description %></td>
-            <td>
-              <%= link_to(request.user.nom_complet, request.user) %>
-            </td>
+            <td><%= request.user.nom_complet %></td>
             <td><%= link_to 'Voir', request %></td>
             <td><%= link_to 'Modifier', edit_request_path(request) %></td>
             <td><%= link_to 'Supprimer', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>

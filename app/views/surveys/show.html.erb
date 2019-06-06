@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<div class="page_title">
+  <h1>Enquête</h1>
+</div>
+
+
 <div class="panel">
   <table class="table">
 	<tr>
@@ -9,8 +14,8 @@
 	<tr>
 		<th>Fichier</th>
 		<td>
-			<% if can? :manage, Fichier %>
-				<%= link_to @survey.fichier.chemin, @survey.fichier %>
+			<% if can? :read, Fichier %>
+				<%= link_to_if @survey.fichier, @survey.try(:fichier).try(:chemin), @survey.fichier %>
 			<% else %>
 				<%= @survey.fichier.chemin %>
 			<% end %>
@@ -43,14 +48,14 @@
 <% if can? :manage, @survey %>
 
 	<div class="actions">
-		<%= button_to 'Modifier', edit_survey_path(@survey), :method => :get %>
+		<%= button_to 'Modifier', edit_survey_path(@survey), :method => :get, :class => "button" %>
 	</div>
 
 	<div class="actions">
-		<%= button_to 'Commander', new_request_path, :method => :get %>
+		<%= button_to 'Commander', new_request_path, :method => :get, :class => "button" %>
 	</div>
 <% end %>
 
 <div class="actions">
-	<%= button_to 'Retour', surveys_path, :method => :get %>
+	<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
 </div>

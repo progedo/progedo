@@ -12,13 +12,13 @@
         <option value = "<%= fichier.id %>" > <%= fichier.chemin %> </option>
       <% end %>
     </datalist>
-    <input type="submit" value="Ajouter un fichier" id="ajouter_un_fichier"/>
+    <input type="submit" value="Ajouter un fichier" class="button" id="ajouter_un_fichier"/>
   <% end %>
 </div>
 
 <%= render 'form', request: @request, button: 'Créer Requête' %>
 
-<%= button_to 'Retour', requests_path, :method => :get %>
+<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
