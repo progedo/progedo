@@ -16,7 +16,12 @@
 
 tr.list_line_odd {
     background-color: #effeef;
-  }
+}
+
+a:hover {
+	color: black;
+	background-color: #effeef;
+}
 
 a.menu:hover {
 color: #ED3D05;
@@ -24,8 +29,16 @@ text-decoration:none;
 background-color: #effeef;
 }
 
+span {
+	background-color: #effeef;
+	margin-bottom: 5px;
+}
+
 span.haut:hover {
 color: #ED3D05;
+}
+a.navbar__home:hover {
+background-color: white;
 }
 
 .haut {
@@ -34,5 +47,112 @@ text-align: center
 }
 
 .page_title {
-	margin: 20px;
+	height: 70px;
+	background-color: #effeef;
+	padding:21px;
+	margin-bottom: 30px;
+}
+.page_title:hover {
+	background-color: white;
+	color: #ED3D05 !important;
+}
+
+li.menu {
+list-style:none !important;
+color:#FFF;
+padding:10px;
+font-size:30px;
+text-decoration:none;
+}
+ 
+nav ul {
+background-color:#64abfb;
+padding:0;
+margin:0;
+min-width: 150px;
+}
+ 
+nav ul li {
+list-style: none;
+line-height:40px;
+float:left;
+}
+ 
+nav ul li a {
+color: #666666;
+padding:10px;
+font-size:15px;
+text-decoration:none;
+background-color: rgba(169, 169, 169, 0); /* Rendre le menu transparent */
+}
+ 
+li.menu a:hover {
+border-bottom:3px #E43D15 solid;
+}
+nav ul li ul { display:none; background-color: white; } /* Rend le menu déroulant caché par défaut */
+ 
+nav ul li:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop */
+z-index:99999;
+display:list-item !important;
+position:absolute;
+margin-top:5px;
+margin-left: auto;
+margin-right: auto;
+}
+ 
+nav ul li:hover ul li {
+float:none;
+}
+
+.menu_a_droite {
+	margin-top:-10px;
+	position: absolute; right: 40px;
+}
+
+.bouton_bas {
+	line-height:44px;
+	background-color: #effeef;
+	font-size:15px;
+   text-align: center;
+}
+
+.bouton_bas:hover {
+	background-color: white;
+	border-bottom:3px #E43D15 solid;
+}
+
+tr:nth-child(even) {background: #effeef}
+
+th {
+	column-width: 120px;
+}
+
+th.center {
+	text-align: center;
+	column-width: auto;
+}
+
+.button {
+	color: #666666 !important;
+	line-height:20px;
+	font-size:20px;
+	font-weight: bold;
+	background-color: #d0efd0 !important;
+}
+
+.button:hover {
+	color: #ED3D05 !important;
+	background-color: white !important;
+}
+
+h2 {
+	color:#666666;
+}
+
+h1 {
+	color:#666666;
+}
+
+h3 {
+	color:#666666;
 }

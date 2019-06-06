@@ -6,7 +6,7 @@ class FichiersController < ApplicationController
   # GET /fichiers
   # GET /fichiers.json
   def index
-    @fichiers = Fichier.all
+    @fichiers = Fichier.all.order('chemin ASC')
   end
 
   # GET /fichiers/1
@@ -29,7 +29,7 @@ class FichiersController < ApplicationController
   # POST /fichiers.json
   def create
     @fichier = Fichier.new(fichier_params)
-    @fichier.survey_id = params[:choix_survey]
+    @fichier.survey_id = params[:survey_id]
     @surveys = Survey.all
 
     respond_to do |format|
@@ -75,6 +75,6 @@ class FichiersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fichier_params
-      params.require(:fichier).permit(:chemin)
+      params.require(:fichier).permit(:chemin, :survey_id)
     end
 end

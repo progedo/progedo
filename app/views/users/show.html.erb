@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page_title">
+  <h1>Utilisateur</h1>
+</div>
+
+
+<div class="panel">
+  <table class="table">
+  <tr>
+    <th>Nom</th>
+    <td><%= @user.try(:name).upcase %></td>
+  </tr>
+  <tr>
+    <th>Prénom</th>
+    <td><%= @user.try(:first_name).titleize %></td>
+  </tr>
+
+  <tr>
+    <th>Email</th>
+    <td><%= @user.try(:email) %></td>
+  </tr>
+
+  <tr>
+    <th>Statut</th>
+      <% if @user.back_office %>
+        <td>Administrateur</td>
+      <% else %>
+        <td>Chercheur</td>
+      <% end %>
+  </tr>
+
+  <tr>
+    <th>Date de création</th>
+    <td><%= @user.try(:created_at).strftime("%d/%m/%Y à %H:%M") %></td>
+  </tr>
+  <tr>
+    <th>Mise à jour</th>
+    <td><%= @user.try(:updated_at).strftime("%d/%m/%Y à %H:%M") %></td>
+  </tr>
+  </table>
+</div>
+
+<br>
+
+<% if can? :manage, User %>
+
+  <div class="actions">
+    <%= button_to 'Modifier', edit_user_path(@user), :method => :get, :class => "button" %>
+  </div>
+
+<% end %>
+
+<div class="actions">
+  <%= button_to 'Retour', :back, :method => :get, :class => "button" %>
+</div>

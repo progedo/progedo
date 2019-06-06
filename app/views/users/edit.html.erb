@@ -1,0 +1,13 @@
+<div class="page_title">
+	<h1>Modifier Utilisateur</h1>
+</div>
+
+<%= render 'form', user: @user, button: 'Modifier Utilisateur' %>
+
+<div class="actions">
+	<%= button_to 'Voir', @user, :method => :get, :class => "button" %>
+</div>
+
+<div class="actions">
+	<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
+</div>

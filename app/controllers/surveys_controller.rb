@@ -5,7 +5,7 @@ class SurveysController < ApplicationController
   # GET /surveys
   # GET /surveys.json
   def index
-    @surveys = Survey.all
+    @surveys = Survey.all.order('title ASC')
   end
 
   # GET /surveys/1
@@ -66,6 +66,7 @@ class SurveysController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_survey
       @survey = Survey.friendly.find(params[:id])
+      #@survey = Survey.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

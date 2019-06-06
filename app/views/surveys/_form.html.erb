@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, size: 100 %>
+    <%= form.label :title, "Titre" %>
+    <%= form.text_field :title, size: 100, :required => true %>
   </div>
 
   <div class="field">
-    <%= form.label :abstract %>
-    <%= form.text_area :abstract, rows: 10, cols: 60 %>
+    <%= form.label :abstract, "Description" %>
+    <%= form.text_area :abstract, rows: 10, cols: 60, :required => true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "#{button}", :class => "button" %>
   </div>
 <% end %>

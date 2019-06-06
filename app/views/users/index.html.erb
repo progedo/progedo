@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page_title">
+  <h1>Utilisateurs</h1>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Email</th>
+      <th>Administarteur</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name.upcase  %></td>
+        <td><%= user.first_name.titleize  %></td>
+        <td><%= user.email %></td>
+        <% if user.back_office? %>
+          <td> Oui </td>
+        <% else %>
+          <td> Non </td>
+        <% end %>
+        <td><%= link_to 'Voir', user %></td>
+        <td><%= link_to 'Modifier', edit_user_path(user) %></td>
+        <td><%= link_to 'Supprimer', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if can? :manage, User %>
+  <center>
+  <%= link_to 'Nouvel Utilisateur', new_user_path, :class => "bouton_bas menu" %>
+  </center>
+<% end %>

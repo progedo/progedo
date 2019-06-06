@@ -6,19 +6,19 @@
 <div class="field">
   <%= form_tag "/requests/new", method: "post" do %>
     <p> Selectiponner un fichier</p>
-    <input list="fic" type="text" name="choix_fichier" id="choix_fichier">
+    <input list="fic" type="text" name="choix_fichier" id="choix_fichier" required>
     <datalist id="fic">
       <% @fichiers.each do |fichier| %>
         <option value = "<%= fichier.id %>" > <%= fichier.chemin %> </option>
       <% end %>
     </datalist>
-    <input type="submit" value="Ajouter un fichier" id="ajouter_un_fichier"/>
+    <input type="submit" value="Ajouter un fichier" class="button" id="ajouter_un_fichier"/>
   <% end %>
 </div>
 
-<%= render 'form', request: @request %>
+<%= render 'form', request: @request, button: 'Créer Requête' %>
 
-<%= link_to 'Back', requests_path %>
+<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {

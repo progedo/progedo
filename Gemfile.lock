@@ -90,6 +90,7 @@ GEM
       warden (~> 1.2.3)
     erubi (1.8.0)
     execjs (2.7.0)
+    fabrication (2.20.2)
     ffi (1.10.0)
     friendly_id (5.2.5)
       activerecord (>= 4.0.0)
@@ -238,6 +239,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  fabrication
   friendly_id (~> 5.2.4)
   jbuilder (~> 2.5)
   jquery-rails

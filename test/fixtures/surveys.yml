@@ -7,3 +7,13 @@ one:
 two:
   title: MyString
   abstract: MyText
+
+survey_test_50 :
+  id: 50
+  title: Survey_50
+  abstract: Description de la Survey_50
+
+survey_test_60 :
+  id: 60
+  title: Survey_60
+  abstract: Description de la Survey_60

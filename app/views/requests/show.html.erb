@@ -1,14 +1,68 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @request.title %>
-</p>
+<div class="page_title">
+  <h1>Requête</h1>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @request.description %>
-</p>
+<div class="panel">
+  <table class="table">
+	<tr>
+		<th>Titre</th>
+		<td><%= @request.try(:title) %></td>
+	</tr>
 
-<%= link_to 'Edit', edit_request_path(@request) %> |
-<%= link_to 'Back', requests_path %>
+	<tr>
+		<th>Fichiers</th>
+		<td>
+			<% @request.fichiers.each do |fichier| %>
+				<% if can? :manage, Fichier %>
+					<%= link_to fichier.chemin, fichier %>
+				<% else %>
+					<%= fichier.try(:chemin) %>
+				<% end %>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<th>Date d'ajout</th>
+		<td><%= @request.try(:created_at).strftime("%d/%m/%Y à %H:%M") %></td>
+	</tr>
+	<tr>
+		<th>Mise à jour</th>
+		<td><%= @request.try(:updated_at).strftime("%d/%m/%Y à %H:%M") %></td>
+	</tr>
+	<tr>
+		<th>Auteur</th>
+		<td>
+			<% if can? :manage, User %>
+				<%= link_to(@request.user.nom_complet, @request.user) %>
+			<% else %>
+				<%= @request.user.nom_complet %>
+			<% end %>
+		</td>
+	</tr>
+  </table>
+</div>
+
+<div class="panel">
+	<table class="table">
+		<tr>
+			<th class="center">Description</th>
+		</tr>
+		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+			<td class="not_mapped_style" style="text-align:center"><%= @request.try(:description) %></td>
+		</tr>
+	</table>
+</div>
+
+<br>
+
+<% if can? :manage, @request %>
+	<div class="actions">
+		<%= button_to 'Modifier', edit_request_path(@request), :method => :get, :class => "button" %>
+	</div>
+<% end %>
+
+<div class="actions">
+	<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
+</div>

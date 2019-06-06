@@ -2,7 +2,12 @@
 	<h1>Modifier Enquête</h1>
 </div>
 
-<%= render 'form', survey: @survey %>
+<%= render 'form', survey: @survey, button: 'Modifier Enquête' %>
 
-<%= link_to 'Show', @survey %> |
-<%= link_to 'Back', surveys_path %>
+<div class="actions">
+	<%= button_to 'Voir', @survey, :method => :get, :class => "button" %>
+</div>
+
+<div class="actions">
+	<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
+</div>

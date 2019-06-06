@@ -1,18 +1,61 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @survey.title %>
-</p>
+<div class="page_title">
+  <h1>Enquête</h1>
+</div>
 
-<p>
-  <strong>Abstract:</strong>
-  <%= @survey.abstract %>
-</p>
 
-<%= link_to 'Edit', edit_survey_path(@survey) %> |
-<%= link_to 'Back', surveys_path %>
+<div class="panel">
+  <table class="table">
+	<tr>
+		<th>Titre</th>
+		<td><%= @survey.try(:title) %></td>
+	</tr>
+	<tr>
+		<th>Fichier</th>
+		<td>
+			<% if can? :read, Fichier %>
+				<%= link_to_if @survey.fichier, @survey.try(:fichier).try(:chemin), @survey.fichier %>
+			<% else %>
+				<%= @survey.fichier.chemin %>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<th>Date d'ajout</th>
+		<td><%= @survey.try(:created_at).strftime("%d/%m/%Y à %H:%M") %></td>
+	</tr>
+	<tr>
+		<th>Mise à jour</th>
+		<td><%= @survey.try(:updated_at).strftime("%d/%m/%Y à %H:%M") %></td>
+	</tr>
+  </table>
+</div>
 
-<a href="/requests/new" class="commander">
-Commander
-</a>
+<div class="panel">
+	<table class="table">
+		<tr>
+			<th class="center">Description</th>
+		</tr>
+		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+			<td class="not_mapped_style" style="text-align:center"><%= @survey.try(:abstract) %></td>
+		</tr>
+	</table>
+</div>
+
+<br>
+
+<% if can? :manage, @survey %>
+
+	<div class="actions">
+		<%= button_to 'Modifier', edit_survey_path(@survey), :method => :get, :class => "button" %>
+	</div>
+
+	<div class="actions">
+		<%= button_to 'Commander', new_request_path, :method => :get, :class => "button" %>
+	</div>
+<% end %>
+
+<div class="actions">
+	<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
+</div>

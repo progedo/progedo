@@ -1,6 +1,6 @@
 <div class="page_title">
 	<h1>Nouvelle Enquête</h1>
 </div>
-<%= render 'form', survey: @survey %>
+<%= render 'form', survey: @survey, button: 'Créer Enquête' %>
 
-<%= link_to 'Back', surveys_path %>
+<%= button_to 'Retour', :back, :method => :get, :class => "button" %>
